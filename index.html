@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Osteria del Garda — Cucina del lago, vista infinita</title>
+  <meta name="description" content="Ristorante gastronomico sul Lago di Garda. 2 stelle Michelin. Solo 38 coperti." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" defer></script>
+</head>
+<body>
+
+
+
+<div id="scroll-progress"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo">Osteria del Garda</a>
+    <ul class="nav-links">
+      <li><a href="/menu.html" data-nav-link>Menu</a></li>
+      <li><a href="/storia.html" data-nav-link>La Storia</a></li>
+      <li><a href="/prenotazioni.html" data-nav-link>Prenotazioni</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Apri menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/>
+      </svg>
+    </button>
+  </div>
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-close" id="mobile-close" aria-label="Chiudi">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/>
+      </svg>
+    </button>
+    <ul class="mobile-nav-links">
+      <li><a href="/menu.html" class="mobile-link">Menu</a></li>
+      <li><a href="/storia.html" class="mobile-link">La Storia</a></li>
+      <li><a href="/prenotazioni.html" class="mobile-link">Prenotazioni</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <img
+      src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=2000&q=80"
+      alt="Lago di Garda al tramonto"
+      fetchpriority="high"
+    />
+  </div>
+  <div class="hero-panel glass" id="hero-panel">
+    <span class="overline">Riva del Garda · Dal 1987</span>
+    <h1 class="hero-headline">Il lago<br>nel piatto.</h1>
+    <p class="hero-subhead">Ingredienti della tradizione gardesana. Tecnica contemporanea. Nessun compromesso.</p>
+    <div class="hero-cta">
+      <a href="/prenotazioni.html" class="btn-primary">Prenota un tavolo</a>
+      <a href="/menu.html" class="btn-ghost">Scopri il menu</a>
+    </div>
+    <p class="hero-proof">2 stelle Michelin · Solo 38 coperti · Prenotazione necessaria</p>
+  </div>
+  <div class="scroll-indicator" aria-hidden="true"><div class="scroll-line"></div></div>
+</section>
+
+<!-- OPENING STATEMENT -->
+<section class="opening" id="storia">
+  <div class="opening-inner">
+    <div class="opening-left">
+      <blockquote class="opening-quote">
+        "Non cuciniamo per impressionare. Cuciniamo per ricordare."
+      </blockquote>
+      <p class="opening-text">Siamo sul Garda dal 1987. Tre generazioni di una famiglia che ha scelto di non spostarsi, di non espandersi, di non crescere per crescere.</p>
+      <p class="opening-text">Ogni sera apriamo la stessa porta. Ogni sera cambia tutto il resto.</p>
+      <a href="/storia.html" class="btn-ghost" style="margin-top:8px">La nostra storia</a>
+    </div>
+    <div class="opening-right">
+      <div class="opening-img-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80"
+          alt="Sala dell'Osteria del Garda"
+          loading="lazy"
+          class="img-cover"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU PREVIEW -->
+<section class="menu-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="overline">Il menu</span>
+      <h2 class="section-title">Stagione in tavola</h2>
+    </div>
+    <div class="menu-grid">
+
+      <article class="dish-card">
+        <div class="dish-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80" alt="Trota del Garda affumicata" loading="lazy" class="dish-card-img" />
+        </div>
+        <div class="dish-card-body">
+          <span class="card-overline">Antipasto</span>
+          <h3 class="dish-name">Trota del Garda affumicata</h3>
+          <p class="dish-desc">Mandorle tostate, fiori d'aglio selvatico, olio del Benaco</p>
+          <span class="dish-price">€28</span>
+        </div>
+      </article>
+
+      <article class="dish-card">
+        <div class="dish-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=800&q=80" alt="Risotto al limone di Gargnano" loading="lazy" class="dish-card-img" />
+        </div>
+        <div class="dish-card-body">
+          <span class="card-overline">Primo piatto</span>
+          <h3 class="dish-name">Risotto al limone di Gargnano</h3>
+          <p class="dish-desc">Burro affumicato, caviale di lago, zest bruciata</p>
+          <span class="dish-price">€34</span>
+        </div>
+      </article>
+
+      <article class="dish-card">
+        <div class="dish-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1544025162-d76538b2759e?auto=format&fit=crop&w=800&q=80" alt="Piccione arrosto lento" loading="lazy" class="dish-card-img" />
+        </div>
+        <div class="dish-card-body">
+          <span class="card-overline">Secondo piatto</span>
+          <h3 class="dish-name">Piccione arrosto lento</h3>
+          <p class="dish-desc">Salsa al Bardolino, radici dimenticate, fondo al ginepro</p>
+          <span class="dish-price">€42</span>
+        </div>
+      </article>
+
+    </div>
+    <div class="menu-cta-wrap">
+      <a href="/menu.html" class="btn-ghost">Sfoglia il menu completo</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="numbers-section">
+  <div class="numbers-editorial">
+    <div class="stat-col">
+      <span class="stat-number" data-target="1987" data-suffix="">1987</span>
+      <div class="stat-rule"></div>
+      <span class="stat-label">Anno di fondazione</span>
+    </div>
+    <div class="stat-col">
+      <span class="stat-number" data-target="38" data-suffix="">38</span>
+      <div class="stat-rule"></div>
+      <span class="stat-label">Coperti al massimo</span>
+    </div>
+    <div class="stat-col">
+      <span class="stat-number" data-target="2" data-suffix="">2</span>
+      <div class="stat-rule"></div>
+      <span class="stat-label">Stelle Michelin</span>
+    </div>
+    <div class="stat-col">
+      <span class="stat-number" data-target="100" data-suffix="%">100%</span>
+      <div class="stat-rule"></div>
+      <span class="stat-label">Prodotti del territorio</span>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGE GALLERY SLIDER -->
+<section class="gallery-section" aria-label="Galleria dell'osteria">
+  <div class="gallery-wrap">
+    <div class="gallery-track">
+      <!-- Set 1 -->
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=600&q=80" alt="Lago di Garda" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80" alt="Piatto di pesce" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Sala ristorante" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=600&q=80" alt="Risotto al limone" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1504893524553-b855bce32c67?auto=format&fit=crop&w=600&q=80" alt="Lago e montagne" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80" alt="Carta dei vini" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1544025162-d76538b2759e?auto=format&fit=crop&w=600&q=80" alt="Piccione arrosto" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=600&q=80" alt="Olio del Benaco" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80" alt="Dessert" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80" alt="Ingredienti di stagione" loading="lazy" /></div>
+      <!-- Set 2 — duplicate for seamless loop -->
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=600&q=80" alt="Lago di Garda" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80" alt="Piatto di pesce" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Sala ristorante" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=600&q=80" alt="Risotto al limone" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1504893524553-b855bce32c67?auto=format&fit=crop&w=600&q=80" alt="Lago e montagne" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80" alt="Carta dei vini" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1544025162-d76538b2759e?auto=format&fit=crop&w=600&q=80" alt="Piccione arrosto" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=600&q=80" alt="Olio del Benaco" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80" alt="Dessert" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80" alt="Ingredienti di stagione" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES / NODES -->
+<section class="nodes-section" aria-label="I nostri valori">
+  <div class="nodes-inner">
+    <div class="nodes-track">
+
+      <div class="node-group">
+        <div class="node-dot-wrap" aria-hidden="true">
+          <div class="node-ring"></div>
+          <div class="node-dot"></div>
+        </div>
+        <div class="node-text">
+          <span class="node-label">Stagionalità</span>
+          <span class="node-sub">prima di tutto</span>
+        </div>
+      </div>
+
+      <div class="node-line" aria-hidden="true"><div class="node-particle"></div></div>
+
+      <div class="node-group">
+        <div class="node-dot-wrap" aria-hidden="true">
+          <div class="node-ring"></div>
+          <div class="node-dot"></div>
+        </div>
+        <div class="node-text">
+          <span class="node-label">Pescatori del Garda</span>
+          <span class="node-sub">dal 1952</span>
+        </div>
+      </div>
+
+      <div class="node-line" aria-hidden="true"><div class="node-particle"></div></div>
+
+      <div class="node-group">
+        <div class="node-dot-wrap" aria-hidden="true">
+          <div class="node-ring"></div>
+          <div class="node-dot"></div>
+        </div>
+        <div class="node-text">
+          <span class="node-label">Zero sprechi</span>
+          <span class="node-sub">dalla radice al piatto</span>
+        </div>
+      </div>
+
+      <div class="node-line" aria-hidden="true"><div class="node-particle"></div></div>
+
+      <div class="node-group">
+        <div class="node-dot-wrap" aria-hidden="true">
+          <div class="node-ring"></div>
+          <div class="node-dot"></div>
+        </div>
+        <div class="node-text">
+          <span class="node-label">Solo 38 posti</span>
+          <span class="node-sub">ogni sera</span>
+        </div>
+      </div>
+
+      <div class="node-line" aria-hidden="true"><div class="node-particle"></div></div>
+
+      <div class="node-group">
+        <div class="node-dot-wrap" aria-hidden="true">
+          <div class="node-ring"></div>
+          <div class="node-dot"></div>
+        </div>
+        <div class="node-text">
+          <span class="node-label">Prenotazione</span>
+          <span class="node-sub">necessaria</span>
+        </div>
+      </div>
+
+      <div class="node-line" aria-hidden="true"><div class="node-particle"></div></div>
+
+      <div class="node-group">
+        <div class="node-dot-wrap" aria-hidden="true">
+          <div class="node-ring"></div>
+          <div class="node-dot"></div>
+        </div>
+        <div class="node-text">
+          <span class="node-label">Ingredienti</span>
+          <span class="node-sub">che parlano</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA / PRENOTAZIONI TEASER -->
+<section class="cta-section">
+  <div class="cta-bg">
+    <img
+      src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1800&q=80"
+      alt="Sala ristorante"
+      loading="lazy"
+    />
+  </div>
+  <div class="cta-inner">
+    <span class="overline">Prenota la tua serata</span>
+    <h2 class="section-title">Ogni sera, una sola sessione.</h2>
+    <p class="cta-sub">Accettiamo prenotazioni con almeno 48 ore di anticipo. Massimo 6 ospiti per tavolo. Solo 38 coperti disponibili.</p>
+    <a href="/prenotazioni.html" class="btn-primary">Prenota ora</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col footer-brand">
+      <span class="footer-logo">Osteria del Garda</span>
+      <p class="footer-tagline">Cucina del lago dal 1987.<br>Riva del Garda.</p>
+    </div>
+    <div class="footer-col footer-nav">
+      <ul>
+        <li><a href="/menu.html">Menu</a></li>
+        <li><a href="/storia.html">La Storia</a></li>
+        <li><a href="/prenotazioni.html">Prenotazioni</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-contact">
+      <address>
+        <span>Via Lungolago 12, Riva del Garda (TN)</span>
+        <a href="tel:+390464123456">+39 0464 123456</a>
+        <a href="mailto:info@osteriadelgarda.it">info@osteriadelgarda.it</a>
+      </address>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram" class="social-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="TripAdvisor" class="social-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="8" cy="10" r="3"/><circle cx="16" cy="10" r="3"/>
+            <path d="M4 10 Q3 6 7 5 Q12 3 17 5 Q21 6 20 10"/>
+            <path d="M8 13 Q12 17 16 13"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Osteria del Garda — P.IVA 02345678901</span>
+    <span>Designed with intention.</span>
+  </div>
+</footer>
+
+<script type="module" src="/src/home.js"></script>
+</body>
+</html>

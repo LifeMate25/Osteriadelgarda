@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Il Menu — Osteria del Garda</title>
+  <meta name="description" content="Menu à la carte e menù di degustazione. Cucina del lago, Riva del Garda." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" defer></script>
+</head>
+<body class="menu-page">
+
+<div id="scroll-progress"></div>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo">Osteria del Garda</a>
+    <ul class="nav-links">
+      <li><a href="/menu.html" data-nav-link>Menu</a></li>
+      <li><a href="/storia.html" data-nav-link>La Storia</a></li>
+      <li><a href="/prenotazioni.html" data-nav-link>Prenotazioni</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Apri menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/>
+      </svg>
+    </button>
+  </div>
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-close" id="mobile-close" aria-label="Chiudi">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/>
+      </svg>
+    </button>
+    <ul class="mobile-nav-links">
+      <li><a href="/menu.html" class="mobile-link">Menu</a></li>
+      <li><a href="/storia.html" class="mobile-link">La Storia</a></li>
+      <li><a href="/prenotazioni.html" class="mobile-link">Prenotazioni</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<header class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2000&q=80" alt="Cucina dell'Osteria del Garda" fetchpriority="high" />
+  </div>
+  <div class="page-hero-content">
+    <span class="overline">Stagione in corso</span>
+    <h1>Il Menu</h1>
+  </div>
+</header>
+
+<!-- DEGUSTAZIONE -->
+<section class="degustazione-section">
+  <div class="deg-inner">
+    <span class="overline">La proposta principale</span>
+    <h2 class="section-title">Menù di Degustazione</h2>
+    <p class="deg-meta">Sette portate · €145 a persona · Tutta la tavola · Abbinamento vini +€75</p>
+
+    <ul class="deg-list">
+      <li class="deg-item">
+        <span class="deg-course">Benvenuto</span>
+        <div>
+          <div class="deg-name">Dalla cucina</div>
+          <div class="deg-note">Piccole preparazioni di stagione</div>
+        </div>
+      </li>
+      <li class="deg-item">
+        <span class="deg-course">I</span>
+        <div>
+          <div class="deg-name">Trota del Garda affumicata</div>
+          <div class="deg-note">Mandorle tostate, fiori d'aglio selvatico, olio del Benaco</div>
+        </div>
+      </li>
+      <li class="deg-item">
+        <span class="deg-course">II</span>
+        <div>
+          <div class="deg-name">Carpaccio di branzino del Garda</div>
+          <div class="deg-note">Agrumi, olio novello, fiori di sale</div>
+        </div>
+      </li>
+      <li class="deg-item">
+        <span class="deg-course">III</span>
+        <div>
+          <div class="deg-name">Risotto al limone di Gargnano</div>
+          <div class="deg-note">Burro affumicato, caviale di lago, zest bruciata</div>
+        </div>
+      </li>
+      <li class="deg-item">
+        <span class="deg-course">Riposo</span>
+        <div>
+          <div class="deg-name">Sorbetto al ginepro e bergamotto</div>
+        </div>
+      </li>
+      <li class="deg-item">
+        <span class="deg-course">IV</span>
+        <div>
+          <div class="deg-name">Piccione arrosto lento</div>
+          <div class="deg-note">Salsa al Bardolino, radici dimenticate, fondo al ginepro</div>
+        </div>
+      </li>
+      <li class="deg-item">
+        <span class="deg-course">V</span>
+        <div>
+          <div class="deg-name">Selezione di formaggi locali</div>
+          <div class="deg-note">Noci, miele di castagno, mostarda di Mantova</div>
+        </div>
+      </li>
+      <li class="deg-item">
+        <span class="deg-course">VI</span>
+        <div>
+          <div class="deg-name">Tiramisù alla maniera di Marco</div>
+          <div class="deg-note">Mascarpone di bufala, caffè del Garda, cacao di São Tomé</div>
+        </div>
+      </li>
+    </ul>
+    <p class="deg-price-total">€145 a persona — vini esclusi</p>
+  </div>
+</section>
+
+<!-- À LA CARTE -->
+<section class="alacarte-section">
+  <div class="alacarte-inner">
+
+    <!-- ANTIPASTI -->
+    <div class="menu-category">
+      <div class="category-header">
+        <h2 class="category-title">Antipasti</h2>
+        <div class="category-line"></div>
+      </div>
+
+      <div class="featured-dish">
+        <div class="featured-dish-img">
+          <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=700&q=80" alt="Trota del Garda affumicata" loading="lazy" />
+        </div>
+        <div class="featured-dish-body">
+          <span class="card-overline">Firma</span>
+          <h3 class="dish-name">Trota del Garda affumicata</h3>
+          <p class="dish-desc">Mandorle tostate, fiori d'aglio selvatico, olio del Benaco. La trota viene affumicata sul momento con legno di ciliegio gardesano.</p>
+          <span class="dish-price">€28</span>
+        </div>
+      </div>
+
+      <div class="dish-row">
+        <div class="dish-row-left">
+          <h3 class="dish-name">Carpaccio di branzino del Garda</h3>
+          <p class="dish-desc">Agrumi, olio novello, fiori di sale</p>
+        </div>
+        <span class="dish-price">€26</span>
+      </div>
+      <div class="dish-row">
+        <div class="dish-row-left">
+          <h3 class="dish-name">Tartare di manzo piemontese</h3>
+          <p class="dish-desc">Tuorlo d'uovo, tartufo estivo, pane biscottato al burro</p>
+        </div>
+        <span class="dish-price">€30</span>
+      </div>
+      <div class="dish-row">
+        <div class="dish-row-left">
+          <h3 class="dish-name">Burrata di Andria con pomodori arrosto</h3>
+          <p class="dish-desc">Basilico fresco, aceto balsamico invecchiato, olio del Benaco</p>
+        </div>
+        <span class="dish-price">€22</span>
+      </div>
+    </div>
+
+    <!-- PRIMI -->
+    <div class="menu-category">
+      <div class="category-header">
+        <h2 class="category-title">Primi Piatti</h2>
+        <div class="category-line"></div>
+      </div>
+
+      <div class="featured-dish">
+        <div class="featured-dish-img">
+          <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=700&q=80" alt="Risotto al limone di Gargnano" loading="lazy" />
+        </div>
+        <div class="featured-dish-body">
+          <span class="card-overline">Firma</span>
+          <h3 class="dish-name">Risotto al limone di Gargnano</h3>
+          <p class="dish-desc">Burro affumicato, caviale di lago, zest bruciata. I limoni vengono raccolti ogni mattina dal giardino di una famiglia di Gargnano con cui collaboriamo dal 1994.</p>
+          <span class="dish-price">€34</span>
+        </div>
+      </div>
+
+      <div class="dish-row">
+        <div class="dish-row-left">
+          <h3 class="dish-name">Tagliolini all'uovo con bottarga di lavarello</h3>
+          <p class="dish-desc">Prezzemolo di mare, aglio dolce, olio aromatizzato al limone</p>
+        </div>
+        <span class="dish-price">€32</span>
+      </div>
+      <div class="dish-row">
+        <div class="dish-row-left">
+          <h3 class="dish-name">Gnocchi di patata viola</h3>
+          <p class="dish-desc">Crema di zucchine del Garda, zafferano, polvere di capperi</p>
+        </div>
+        <span class="dish-price">€28</span>
+      </div>
+      <div class="dish-row">
+        <div class="dish-row-left">
+          <h3 class="dish-name">Paccheri al ragù bianco di lago</h3>
+          <p class="dish-desc">Persico e tinca, erbe aromatiche, pomodoro verde</p>
+        </div>
+        <span class="dish-price">€30</span>
+      </div>
+    </div>
+
+    <!-- SECONDI -->
+    <div class="menu-category">
+      <div class="category-header">
+        <h2 class="category-title">Secondi Piatti</h2>
+        <div class="category-line"></div>
+      </div>
+
+      <div class="featured-dish">
+        <div class="featured-dish-img">
+          <img src="https://images.unsplash.com/photo-1544025162-d76538b2759e?auto=format&fit=crop&w=700&q=80" alt="Piccione arrosto lento" loading="lazy" />
+        </div>
+        <div class="featured-dish-body">
+          <span class="card-overline">Firma</span>
+          <h3 class="dish-name">Piccione arrosto lento</h3>
+          <p class="dish-desc">Salsa al Bardolino, radici dimenticate, fondo al ginepro. Il piccione viene marinato per 24 ore e cotto a bassa temperatura prima del passaggio finale in forno.</p>
+          <span class="dish-price">€42</span>
+        </div>
+      </div>
+
+      <div class="dish-row">
+        <div class="dish-row-left">
+          <h3 class="dish-name">Branzino del Lago in crosta di erbe</h3>
+          <p class="dish-desc">Verdure di stagione, emulsione al bergamotto, fondo di pesce</p>
+        </div>
+        <span class="dish-price">€38</span>
+      </div>
+      <div class="dish-row">
+        <div class="dish-row-left">
+          <h3 class="dish-name">Agnello della Lessinia</h3>
+          <p class="dish-desc">Jus alle olive del Garda, polenta morbida, timo selvatico</p>
+        </div>
+        <span class="dish-price">€44</span>
+      </div>
+      <div class="dish-row">
+        <div class="dish-row-left">
+          <h3 class="dish-name">Filetto di lavarello in bianco</h3>
+          <p class="dish-desc">Capperi di Pantelleria, patate arrosto, salsa verde al prezzemolo</p>
+        </div>
+        <span class="dish-price">€36</span>
+      </div>
+    </div>
+
+    <!-- FORMAGGI -->
+    <div class="menu-category">
+      <div class="category-header">
+        <h2 class="category-title">Formaggi</h2>
+        <div class="category-line"></div>
+      </div>
+      <div class="dish-row">
+        <div class="dish-row-left">
+          <h3 class="dish-name">Selezione di formaggi locali</h3>
+          <p class="dish-desc">Noci, miele di castagno, mostarda di Mantova — proposta dal nostro affinatore di Riva</p>
+        </div>
+        <span class="dish-price">€18</span>
+      </div>
+    </div>
+
+    <!-- DOLCI -->
+    <div class="menu-category">
+      <div class="category-header">
+        <h2 class="category-title">Dolci</h2>
+        <div class="category-line"></div>
+      </div>
+
+      <div class="featured-dish">
+        <div class="featured-dish-img">
+          <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=700&q=80" alt="Tiramisù alla maniera di Marco" loading="lazy" />
+        </div>
+        <div class="featured-dish-body">
+          <span class="card-overline">Firma</span>
+          <h3 class="dish-name">Tiramisù alla maniera di Marco</h3>
+          <p class="dish-desc">Mascarpone di bufala, caffè del Garda, cacao di São Tomé. La ricetta di Marco Martinelli, seconda generazione. Non cambia dal 2009.</p>
+          <span class="dish-price">€16</span>
+        </div>
+      </div>
+
+      <div class="dish-row">
+        <div class="dish-row-left">
+          <h3 class="dish-name">Sorbetto al limone di Gargnano</h3>
+          <p class="dish-desc">Basilico fresco, sale di Maldon, olio extravergine del Garda</p>
+        </div>
+        <span class="dish-price">€14</span>
+      </div>
+      <div class="dish-row">
+        <div class="dish-row-left">
+          <h3 class="dish-name">Torta di mandorle e amarena</h3>
+          <p class="dish-desc">Panna cotta alla vaniglia di Tahiti, amarene sciroppate al Bardolino</p>
+        </div>
+        <span class="dish-price">€18</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WINE SECTION -->
+<section class="wine-section">
+  <div class="wine-inner">
+    <div class="wine-inner-text">
+      <span class="overline">La cantina</span>
+      <h2 class="section-title">Oltre 400 etichette. Il Garda in ogni calice.</h2>
+      <p>Il Bardolino viene da vigne che conoscono il lago. Il Custoza porta la mineralità delle morene glaciali. La Lugana parla di pietra e brezza.</p>
+      <p>Costruiamo la carta con i produttori, non per loro. Ogni bottiglia ha una storia che vale la pena raccontare a tavola.</p>
+      <a href="/prenotazioni.html" class="btn-ghost">Prenota e richiedi abbinamento</a>
+    </div>
+    <div class="wine-img-wrap">
+      <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1000&q=80" alt="Selezione di vini del Garda" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- NOTES -->
+<div class="menu-notes">
+  <div class="menu-notes-inner">
+    I prezzi sono da intendersi IVA inclusa. Informare il personale di sala di eventuali allergie o intolleranze prima di ordinare. Il menu è soggetto a variazioni stagionali. Coperto €6. Un piatto fuori menu può essere preparato con 24 ore di preavviso su richiesta.
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col footer-brand">
+      <span class="footer-logo">Osteria del Garda</span>
+      <p class="footer-tagline">Cucina del lago dal 1987.<br>Riva del Garda.</p>
+    </div>
+    <div class="footer-col footer-nav">
+      <ul>
+        <li><a href="/menu.html">Menu</a></li>
+        <li><a href="/storia.html">La Storia</a></li>
+        <li><a href="/prenotazioni.html">Prenotazioni</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-contact">
+      <address>
+        <span>Via Lungolago 12, Riva del Garda (TN)</span>
+        <a href="tel:+390464123456">+39 0464 123456</a>
+        <a href="mailto:info@osteriadelgarda.it">info@osteriadelgarda.it</a>
+      </address>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram" class="social-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Osteria del Garda — P.IVA 02345678901</span>
+    <span>Designed with intention.</span>
+  </div>
+</footer>
+
+<script type="module" src="/src/menu-page.js"></script>
+</body>
+</html>

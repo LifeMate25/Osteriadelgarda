@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prenotazioni — Osteria del Garda</title>
+  <meta name="description" content="Prenota il tuo tavolo all'Osteria del Garda. Solo 38 coperti, una sola sessione serale." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body class="prenotazioni-page">
+
+<div id="scroll-progress"></div>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo">Osteria del Garda</a>
+    <ul class="nav-links">
+      <li><a href="/menu.html" data-nav-link>Menu</a></li>
+      <li><a href="/storia.html" data-nav-link>La Storia</a></li>
+      <li><a href="/prenotazioni.html" data-nav-link>Prenotazioni</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Apri menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/>
+      </svg>
+    </button>
+  </div>
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-close" id="mobile-close" aria-label="Chiudi">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/>
+      </svg>
+    </button>
+    <ul class="mobile-nav-links">
+      <li><a href="/menu.html" class="mobile-link">Menu</a></li>
+      <li><a href="/storia.html" class="mobile-link">La Storia</a></li>
+      <li><a href="/prenotazioni.html" class="mobile-link">Prenotazioni</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<header class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=2000&q=80" alt="Sala dell'Osteria del Garda" fetchpriority="high" />
+  </div>
+  <div class="page-hero-content">
+    <span class="overline">Tavolo per due?</span>
+    <h1>Prenota la tua serata.</h1>
+  </div>
+</header>
+
+<!-- PRENOTA SECTION -->
+<section class="prenota-section">
+  <div class="prenota-inner">
+
+    <!-- FORM -->
+    <div class="prenota-form-col">
+      <span class="overline">Richiesta di prenotazione</span>
+      <h2 class="section-title">Un tavolo sul lago.</h2>
+      <p class="prenota-sub">Accettiamo prenotazioni con almeno 48 ore di anticipo. Confermiamo via email entro 24 ore dalla richiesta. Massimo 6 ospiti per tavolo.</p>
+
+      <form class="booking-form" id="booking-form" novalidate>
+        <div class="form-row">
+          <input type="text" class="input" placeholder="Nome e cognome" required autocomplete="name" />
+        </div>
+        <div class="form-row">
+          <input type="email" class="input" placeholder="Indirizzo email" required autocomplete="email" />
+        </div>
+        <div class="form-row">
+          <input type="tel" class="input" placeholder="Numero di telefono" autocomplete="tel" />
+        </div>
+        <div class="form-row form-row--2col">
+          <input type="date" class="input" required />
+          <input type="number" class="input" placeholder="N° ospiti" min="1" max="6" required />
+        </div>
+        <div class="form-row">
+          <select class="input" style="appearance:none;-webkit-appearance:none;cursor:pointer;">
+            <option value="" disabled selected style="color:rgba(240,235,226,0.4)">Preferenza orario</option>
+            <option value="19:30">19:30</option>
+            <option value="20:00">20:00</option>
+            <option value="20:30">20:30</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <textarea class="input input--textarea" placeholder="Intolleranze, occasioni speciali, richieste particolari..." rows="4"></textarea>
+        </div>
+        <div class="form-row">
+          <button type="submit" class="btn-primary btn-primary--full">Invia richiesta</button>
+        </div>
+        <div class="form-success" id="form-success" hidden>
+          <span>Grazie. Vi contatteremo entro 24 ore per confermare la prenotazione.</span>
+        </div>
+      </form>
+    </div>
+
+    <!-- INFO PANEL -->
+    <div class="prenota-info-col">
+      <div class="info-card">
+        <div class="info-card-img">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Sala ristorante" loading="lazy" />
+        </div>
+        <div class="info-card-body">
+          <div class="info-block">
+            <span class="info-label">Orari</span>
+            <span class="info-value">Mercoledì – Domenica<br>Una sola sessione: 19:30 – 23:00<br>Lunedì e martedì: chiuso</span>
+          </div>
+          <div class="info-divider"></div>
+          <div class="info-block">
+            <span class="info-label">Dove siamo</span>
+            <span class="info-value">Via Lungolago 12<br>Riva del Garda (TN) 38066<br>Parcheggio convenzionato a 200 m</span>
+          </div>
+          <div class="info-divider"></div>
+          <div class="info-block">
+            <span class="info-label">Politica di cancellazione</span>
+            <span class="info-value">Cancellazione gratuita fino a 48 ore prima. In caso di no-show sarà addebitato il costo del menù di degustazione.</span>
+          </div>
+          <div class="info-divider"></div>
+          <div class="info-block">
+            <span class="info-label">Dress code</span>
+            <span class="info-value">Smart casual. Non richiesto l'abito formale, ma apprezziamo l'eleganza.</span>
+          </div>
+          <div class="info-divider"></div>
+          <div class="info-block">
+            <span class="info-label">Contatti diretti</span>
+            <span class="info-value">
+              <a href="tel:+390464123456" style="color:var(--accent)">+39 0464 123456</a><br>
+              <a href="mailto:info@osteriadelgarda.it" style="color:var(--accent)">info@osteriadelgarda.it</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col footer-brand">
+      <span class="footer-logo">Osteria del Garda</span>
+      <p class="footer-tagline">Cucina del lago dal 1987.<br>Riva del Garda.</p>
+    </div>
+    <div class="footer-col footer-nav">
+      <ul>
+        <li><a href="/menu.html">Menu</a></li>
+        <li><a href="/storia.html">La Storia</a></li>
+        <li><a href="/prenotazioni.html">Prenotazioni</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-contact">
+      <address>
+        <span>Via Lungolago 12, Riva del Garda (TN)</span>
+        <a href="tel:+390464123456">+39 0464 123456</a>
+        <a href="mailto:info@osteriadelgarda.it">info@osteriadelgarda.it</a>
+      </address>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram" class="social-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Osteria del Garda — P.IVA 02345678901</span>
+    <span>Designed with intention.</span>
+  </div>
+</footer>
+
+<script type="module" src="/src/prenotazioni-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Storia — Osteria del Garda</title>
+  <meta name="description" content="Tre generazioni, un lago, un'idea di cucina. La storia dell'Osteria del Garda dal 1987." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" defer></script>
+</head>
+<body class="storia-page">
+
+<div id="scroll-progress"></div>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo">Osteria del Garda</a>
+    <ul class="nav-links">
+      <li><a href="/menu.html" data-nav-link>Menu</a></li>
+      <li><a href="/storia.html" data-nav-link>La Storia</a></li>
+      <li><a href="/prenotazioni.html" data-nav-link>Prenotazioni</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Apri menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/>
+      </svg>
+    </button>
+  </div>
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-close" id="mobile-close" aria-label="Chiudi">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/>
+      </svg>
+    </button>
+    <ul class="mobile-nav-links">
+      <li><a href="/menu.html" class="mobile-link">Menu</a></li>
+      <li><a href="/storia.html" class="mobile-link">La Storia</a></li>
+      <li><a href="/prenotazioni.html" class="mobile-link">Prenotazioni</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<header class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://images.unsplash.com/photo-1504893524553-b855bce32c67?auto=format&fit=crop&w=2000&q=80" alt="Lago di Garda" fetchpriority="high" />
+  </div>
+  <div class="page-hero-content">
+    <span class="overline">Dal 1987 · Riva del Garda</span>
+    <h1>Tre generazioni.<br>Un lago. Un'idea.</h1>
+  </div>
+</header>
+
+<!-- PULL QUOTE -->
+<section class="pull-quote-section">
+  <div class="pull-quote-inner">
+    <blockquote class="pull-quote">
+      "Il lago non è uno sfondo. È un ingrediente. Il più importante che abbiamo."
+    </blockquote>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section">
+  <div class="timeline-inner">
+    <div class="timeline-heading">
+      <span class="overline">La nostra storia</span>
+      <h2 class="section-title">Trentasette anni sulla riva.</h2>
+      <p>Non siamo cresciuti in fretta. Non ne avevamo bisogno. Il lago ci ha insegnato che le cose migliori chiedono tempo, silenzio, e rispetto per ciò che viene prima di noi.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1987</div>
+        <p class="timeline-text">Aldo e Maria Martinelli aprono l'Osteria del Garda con dodici coperti, una cucina minuscola e una visione molto grande. Il primo menu: sei piatti. Tutti di lago.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1994</div>
+        <p class="timeline-text">Il Gambero Rosso pubblica la prima recensione nazionale. "Un posto che non assomiglia a nessun altro". Non cambia nulla. Non era questo il punto.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2001</div>
+        <p class="timeline-text">Prima stella Michelin. Aldo la appende in cucina, vicino alla finestra sul lago. "Così ricordiamo per chi la cuciniamo", dice. I coperti salgono a ventisei. Non di più.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2009</div>
+        <p class="timeline-text">Marco Martinelli, seconda generazione, torna da tre anni a Parigi. Porta tecnica nuova. Il lago rimane. Il risotto al limone di Gargnano entra nel menu. È ancora lì.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2018</div>
+        <p class="timeline-text">Seconda stella Michelin. Il telefono squilla per tre giorni senza sosta. Trentotto coperti. Non uno di più. "Abbiamo smesso di ricevere chiamate", dice Marco. "Abbiamo iniziato a fare cucina".</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2024</div>
+        <p class="timeline-text">Sofia Martinelli, terza generazione, entra in cucina dopo quattro anni a Copenhagen. Porta una domanda: cosa significa cucina del territorio quando il territorio cambia? La risposta è in corso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAKE SECTION -->
+<section class="lake-section">
+  <div class="lake-inner">
+    <div class="lake-img">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Prodotti del Garda" loading="lazy" />
+    </div>
+    <div class="lake-text">
+      <span class="overline">Il territorio</span>
+      <h2 class="section-title">Il lago come dispensa.</h2>
+      <p>Il Garda non è uno specchio d'acqua. È un ecosistema. Le trote e le tinche che arrivano in cucina ogni mattina vengono dalle stesse famiglie di pescatori con cui collaboriamo dal 1989.</p>
+      <p>I limoni vengono dai giardini di Gargnano. L'olio dal Benaco. Le verdure dall'orto di Maria, che a ottantuno anni continua a scegliere ogni pianta.</p>
+      <p>Non è un principio di stile. È il modo in cui cuciniamo da sempre.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section">
+  <div class="team-inner">
+    <span class="overline">Le persone</span>
+    <h2 class="section-title">Chi cucina per voi.</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <span class="team-member-name">Marco Martinelli</span>
+        <span class="team-member-role">Executive Chef · Seconda generazione</span>
+        <p class="team-member-desc">Cresciuto tra le reti dei pescatori e le padelle di sua madre. Tre anni a Parigi da Robuchon. Quindici anni a Riva del Garda. Ha imparato che la tecnica serve a capire meglio la tradizione, non a sostituirla.</p>
+      </div>
+      <div class="team-member">
+        <span class="team-member-name">Sofia Martinelli</span>
+        <span class="team-member-role">Sous Chef · Terza generazione</span>
+        <p class="team-member-desc">Ha studiato alla scuola di cucina di Lione, poi quattro anni al Noma di Copenhagen. Porta la domanda che ogni generazione deve portare: cosa rimane, e cosa deve cambiare? La risposta la dà ogni sera.</p>
+      </div>
+      <div class="team-member">
+        <span class="team-member-name">Luca Bertani</span>
+        <span class="team-member-role">Sommelier · Cantiniere</span>
+        <p class="team-member-desc">Diciassette anni di Garda in ogni calice. Conosce ogni produttore della carta dei vini di persona. Il mercoledì va in cantina. Il giovedì sceglie cosa raccontare a tavola il fine settimana.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-bg">
+    <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1800&q=80" alt="Lago di Garda" loading="lazy" />
+  </div>
+  <div class="cta-inner">
+    <span class="overline">Vieni a trovarci</span>
+    <h2 class="section-title">La storia continua ogni sera.</h2>
+    <p class="cta-sub">Trentotto coperti. Una sola sessione serale. La porta apre alle 19:30.</p>
+    <a href="/prenotazioni.html" class="btn-primary">Prenota il tuo tavolo</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col footer-brand">
+      <span class="footer-logo">Osteria del Garda</span>
+      <p class="footer-tagline">Cucina del lago dal 1987.<br>Riva del Garda.</p>
+    </div>
+    <div class="footer-col footer-nav">
+      <ul>
+        <li><a href="/menu.html">Menu</a></li>
+        <li><a href="/storia.html">La Storia</a></li>
+        <li><a href="/prenotazioni.html">Prenotazioni</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-contact">
+      <address>
+        <span>Via Lungolago 12, Riva del Garda (TN)</span>
+        <a href="tel:+390464123456">+39 0464 123456</a>
+        <a href="mailto:info@osteriadelgarda.it">info@osteriadelgarda.it</a>
+      </address>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram" class="social-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Osteria del Garda — P.IVA 02345678901</span>
+    <span>Designed with intention.</span>
+  </div>
+</footer>
+
+<script type="module" src="/src/storia-page.js"></script>
+</body>
+</html>
