@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Osteria del Garda — Cucina del lago, vista infinita</title>
-  <meta name="description" content="Ristorante gastronomico sul Lago di Garda. 2 stelle Michelin. Solo 38 coperti." />
+  <meta name="description" content="Ristorante gastronomico sul Lago di Garda. 3 stelle Michelin. Solo 38 coperti." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -49,27 +49,25 @@
   </div>
 </nav>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg">
-    <img
-      src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=2000&q=80"
-      alt="Lago di Garda al tramonto"
-      fetchpriority="high"
-    />
-  </div>
-  <div class="hero-panel glass" id="hero-panel">
-    <span class="overline">Riva del Garda · Dal 1987</span>
-    <h1 class="hero-headline">Il lago<br>nel piatto.</h1>
-    <p class="hero-subhead">Ingredienti della tradizione gardesana. Tecnica contemporanea. Nessun compromesso.</p>
-    <div class="hero-cta">
-      <a href="/prenotazioni.html" class="btn-primary">Prenota un tavolo</a>
-      <a href="/menu.html" class="btn-ghost">Scopri il menu</a>
+<!-- HERO VIDEO SCROLL -->
+<div id="hero">
+  <div class="hero-sticky">
+    <div id="hero-load" class="hero-load">Caricamento...</div>
+    <div class="hero-video-overlay"></div>
+    <div id="hero-title" class="hero-title">Osteria del Garda</div>
+    <div class="hero-panel glass" id="hero-panel">
+      <span class="overline">Riva del Garda · Dal 1987</span>
+      <h1 class="hero-headline">Il lago<br>nel piatto.</h1>
+      <p class="hero-subhead">Ingredienti della tradizione gardesana. Tecnica contemporanea. Nessun compromesso.</p>
+      <div class="hero-cta">
+        <a href="/prenotazioni.html" class="btn-primary">Prenota un tavolo</a>
+        <a href="/menu.html" class="btn-ghost">Scopri il menu</a>
+      </div>
+      <p class="hero-proof">3 stelle Michelin · Solo 38 coperti · Prenotazione necessaria</p>
     </div>
-    <p class="hero-proof">2 stelle Michelin · Solo 38 coperti · Prenotazione necessaria</p>
+    <div class="scroll-indicator" aria-hidden="true"><div class="scroll-line"></div></div>
   </div>
-  <div class="scroll-indicator" aria-hidden="true"><div class="scroll-line"></div></div>
-</section>
+</div>
 
 <!-- OPENING STATEMENT -->
 <section class="opening" id="storia">
@@ -161,7 +159,7 @@
       <span class="stat-label">Coperti al massimo</span>
     </div>
     <div class="stat-col">
-      <span class="stat-number" data-target="2" data-suffix="">2</span>
+      <span class="stat-number" data-target="3" data-suffix="">3</span>
       <div class="stat-rule"></div>
       <span class="stat-label">Stelle Michelin</span>
     </div>

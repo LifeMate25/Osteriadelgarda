@@ -15,7 +15,7 @@ if (!reduced && !mobile) {
   window.addEventListener('load', () => {
     if (typeof gsap === 'undefined') return;
     gsap.registerPlugin(ScrollTrigger);
-    initLenis(gsap);
+    const lenis = initLenis(gsap);
 
     // ── HERO ENTRANCE ──────────────────────────────────────
     gsap.from('.nav-inner', {
@@ -23,34 +23,88 @@ if (!reduced && !mobile) {
       duration: 0.9, ease: 'power3.out', delay: 0.1
     });
 
-    gsap.to('#hero-panel', {
-      opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.05
-    });
+    // Chars are split but won't stagger — reset to visible so panel opacity controls the reveal
+    gsap.set('.hero-headline .char', { opacity: 1, y: 0 });
 
-    const chars = document.querySelectorAll('.hero-headline .char');
-    if (chars.length) {
-      gsap.to(chars, {
-        opacity: 1, y: 0,
-        duration: 1.1, ease: 'power4.out',
-        stagger: { each: 0.026, from: 'start' },
-        delay: 0.2
-      });
+    // ── CANVAS IMAGE SEQUENCE ──────────────────────────────
+    const TOTAL_FRAMES = 192;
+    const frames  = new Array(TOTAL_FRAMES);
+    const heroEl  = document.getElementById('hero');
+    const heroLoad = document.getElementById('hero-load');
+    const sticky  = heroEl.querySelector('.hero-sticky');
+
+    const canvas = document.createElement('canvas');
+    canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0;';
+    sticky.insertBefore(canvas, sticky.firstChild);
+    const ctx = canvas.getContext('2d', { alpha: false });
+
+    let currentFrameIdx = 0;
+
+    const drawFrameAt = idx => {
+      const img = frames[idx];
+      if (!img?.complete || !img.naturalWidth) return;
+      const cw = canvas.width, ch = canvas.height;
+      const scale = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
+      const dw = img.naturalWidth  * scale;
+      const dh = img.naturalHeight * scale;
+      ctx.drawImage(img, (cw - dw) / 2, (ch - dh) / 2, dw, dh);
+    };
+
+    const resizeCanvas = () => {
+      canvas.width  = sticky.offsetWidth  || window.innerWidth;
+      canvas.height = sticky.offsetHeight || window.innerHeight;
+      drawFrameAt(currentFrameIdx);
+    };
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas, { passive: true });
+
+    let loaded = 0;
+    const padded = n => String(n).padStart(4, '0');
+    const onFrameSettled = () => { if (++loaded === TOTAL_FRAMES) onAllLoaded(); };
+    for (let i = 0; i < TOTAL_FRAMES; i++) {
+      const img = new Image();
+      frames[i] = img;
+      img.onload  = onFrameSettled;
+      img.onerror = onFrameSettled;
+      img.src = `/frames/frame${padded(i + 1)}.jpg`;
     }
 
-    gsap.from(['.hero-subhead', '.hero-cta', '.hero-proof'], {
-      opacity: 0, y: 16,
-      duration: 0.7, ease: 'power3.out',
-      stagger: 0.1,
-      delay: 0.75
-    });
+    function onAllLoaded() {
+      if (heroLoad) heroLoad.style.display = 'none';
+      drawFrameAt(0);
+      gsap.fromTo('#hero-title', { opacity: 0 }, { opacity: 1, duration: 0.8, ease: 'power2.out' });
 
-    // ── HERO PARALLAX ──────────────────────────────────────
-    gsap.to('.hero-bg img', {
-      yPercent: 22, ease: 'none',
-      scrollTrigger: {
-        trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true
-      }
-    });
+      const scrollable   = heroEl.offsetHeight - window.innerHeight;
+      let lastFrame      = -1;
+      let titleFaded     = false;
+      let panelRevealed  = false;
+
+      gsap.ticker.add(() => {
+        if (scrollable <= 0) return;
+        const raw      = lenis?.targetScroll ?? window.scrollY;
+        const progress = Math.max(0, Math.min(1, raw / scrollable));
+        const idx      = Math.min(TOTAL_FRAMES - 1, Math.floor(progress * (TOTAL_FRAMES - 1)));
+
+        if (idx !== lastFrame) {
+          lastFrame = currentFrameIdx = idx;
+          drawFrameAt(idx);
+        }
+
+        if (!titleFaded && progress > 0.04) {
+          titleFaded = true;
+          gsap.to('#hero-title', { opacity: 0, duration: 0.35, ease: 'power2.in' });
+        }
+
+        if (!panelRevealed && progress >= 0.85) {
+          panelRevealed = true;
+          lenis?.stop();
+          gsap.to('#hero-panel', {
+            opacity: 1, y: 0, duration: 0.85, ease: 'power3.out',
+            onComplete: () => lenis?.start()
+          });
+        }
+      });
+    }
 
     // ── OPENING: word-mask reveals ─────────────────────────
     splitAndReveal('.section-title, .opening-quote');
@@ -162,6 +216,9 @@ if (!reduced && !mobile) {
     el.style.opacity = '1';
     el.style.transform = 'none';
   });
+  // Mobile: loading indicator not needed (CSS background-image handles the hero)
+  const heroLoad = document.getElementById('hero-load');
+  if (heroLoad) heroLoad.style.display = 'none';
 }
 
 // ─── HELPER: split hero headline into per-character spans ─────────────────────
