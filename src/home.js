@@ -9,7 +9,6 @@ splitHeroChars();
 
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const mobile  = window.innerWidth <= 768;
-const hasPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
 if (!reduced && !mobile) {
   window.addEventListener('load', () => {
@@ -79,7 +78,7 @@ if (!reduced && !mobile) {
       let titleFaded     = false;
       let panelRevealed  = false;
 
-      gsap.ticker.add(() => {
+      const heroTicker = () => {
         if (scrollable <= 0) return;
         const raw      = lenis?.targetScroll ?? window.scrollY;
         const progress = Math.max(0, Math.min(1, raw / scrollable));
@@ -103,7 +102,12 @@ if (!reduced && !mobile) {
             onComplete: () => lenis?.start()
           });
         }
-      });
+
+        if (progress >= 1) {
+          gsap.ticker.remove(heroTicker);
+        }
+      };
+      gsap.ticker.add(heroTicker);
     }
 
     // ── OPENING: word-mask reveals ─────────────────────────
@@ -202,8 +206,6 @@ if (!reduced && !mobile) {
       scrollTrigger: { trigger: '.cta-inner', start: 'top 85%', once: true }
     });
 
-    // ── MAGNETIC BUTTONS ───────────────────────────────────
-    if (hasPointer) initMagneticButtons();
   });
 
 } else {
@@ -235,20 +237,3 @@ function splitHeroChars() {
   }).join('');
 }
 
-// ─── HELPER: magnetic buttons (spring physics) ────────────────────────────────
-function initMagneticButtons() {
-  const STRENGTH = 0.3;
-  document.querySelectorAll('.btn-primary, .btn-ghost').forEach(btn => {
-    btn.addEventListener('mousemove', e => {
-      const r  = btn.getBoundingClientRect();
-      const dx = (e.clientX - (r.left + r.width  / 2)) * STRENGTH;
-      const dy = (e.clientY - (r.top  + r.height / 2)) * STRENGTH;
-      btn.style.transition = 'transform 0.15s ease';
-      btn.style.transform  = `translate(${dx}px, ${dy}px)`;
-    });
-    btn.addEventListener('mouseleave', () => {
-      btn.style.transition = 'transform 0.55s cubic-bezier(0.23, 1, 0.32, 1)';
-      btn.style.transform  = '';
-    });
-  });
-}
