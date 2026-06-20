@@ -849,24 +849,24 @@ body::after {
 .featured-dish:hover .featured-dish-img img { transform: scale(1.04); }
 .featured-dish-body {
   padding: 36px 40px;
-  display: flex; flex-direction: column; justify-content: center; gap: 12px;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; gap: 12px;
 }
 .featured-dish-body .card-overline { color: var(--accent); }
 .featured-dish-body .dish-name { font-size: clamp(1.5rem, 2.5vw, 2rem); }
 .featured-dish-body .dish-desc { font-size: var(--text-base); }
-.featured-dish-body .dish-price { text-align: left; font-size: var(--text-lg); margin-top: 8px; }
+.featured-dish-body .dish-price { text-align: center; font-size: var(--text-lg); margin-top: 8px; }
 
 /* Regular dish row */
 .dish-row {
-  display: flex; justify-content: space-between; align-items: baseline;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
   padding: 20px 0; border-bottom: 1px solid rgba(212,175,100,0.07);
-  gap: 24px; transition: padding-left 0.2s;
+  gap: 6px;
 }
-.dish-row:hover { padding-left: 6px; }
-.dish-row-left { flex: 1; }
+.dish-row-left { flex: none; }
 .dish-row .dish-name { font-size: var(--text-lg); margin-bottom: 4px; }
 .dish-row .dish-desc { font-size: var(--text-sm); }
-.dish-row .dish-price { font-family: var(--font-body); font-weight: 500; font-size: var(--text-base); color: var(--accent); white-space: nowrap; }
+.dish-row .dish-price { font-family: var(--font-body); font-weight: 500; font-size: var(--text-base); color: var(--accent); white-space: nowrap; text-align: center; }
 
 /* Wine teaser on menu page */
 .wine-section {
