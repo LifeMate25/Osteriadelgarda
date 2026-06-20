@@ -471,7 +471,9 @@ body::after {
 .dish-card-body {
   padding: 24px 28px 28px;
   display: flex; flex-direction: column; gap: 10px;
+  text-align: center; align-items: center;
 }
+.dish-card-body .dish-price { text-align: center; }
 .card-overline {
   font-family: var(--font-body); font-size: var(--text-xs);
   font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase;
@@ -1221,7 +1223,7 @@ body::after {
   max-width: var(--container);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 .stat-col {
   padding: clamp(52px, 8vw, 96px) clamp(28px, 4vw, 56px);
@@ -1294,10 +1296,7 @@ body::after {
   .stat-col:nth-child(2) { border-right: none; }
   .stat-col:nth-child(1),
   .stat-col:nth-child(2) { border-bottom: 1px solid var(--border); }
-  .stat-col:nth-child(3),
-  .stat-col:nth-child(4) { border-bottom: none; }
-  .stat-col:nth-child(3) { border-right: 1px solid var(--border); }
-  .stat-col:nth-child(4) { border-right: none; }
+  .stat-col:nth-child(3) { border-right: none; border-bottom: none; }
 }
 
 @media (max-width: 600px) {
